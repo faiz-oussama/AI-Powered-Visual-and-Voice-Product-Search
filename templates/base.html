@@ -1,0 +1,333 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SearchEngine</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static' , filename='images/favicon.png')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/material-design-iconic-font.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-stars.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/meanmenu.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/slick.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/venobox.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/venobox.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/helper.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
+        <style>
+            .header-sticky.stick {
+                background: #149dff !important;
+            }
+            .header-sticky.stick .hb-menu nav > ul > li > a {
+                color: #ffffff !important;
+            }
+            .header-sticky.stick .hb-menu nav > ul > li:hover > a {
+                color: #242424 !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="body-wrapper">
+            <header>
+                <div class="header-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-8"style="margin-left:300px;">
+                                <div class="header-top-right">
+                                    <ul class="ht-menu">
+                                        <li>
+                                            <span class="language-selector-wrapper">Language :</span>
+                                            <div class="ht-language-trigger"><span id="currentLang">English</span></div>
+                                            <div class="language ht-language">
+                                                <ul class="ht-setting-list">
+                                                    <li class="active" data-lang="en-US"><a href="#"><img src="images/menu/flag-icon/1.jpg" alt="">English</a></li>
+                                                    <li data-lang="ar-SA"><a href="#"><img src="images/menu/flag-icon/3.jpg" alt="">العربية</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Language Area End Here -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="logo pb-sm-30 pb-xs-30">
+                                    <a href="index.html">
+                                        <img src="{{ url_for('static', filename='images/logo.png') }}" style="transform: scale(5);width: 40px;height: 40px;margin-left: 40px;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
+                                <form action="/search" method="POST" enctype="multipart/form-data" class="hm-searchbox">
+                                    <select class="nice-select select-search-category">
+                                        <option value="0">All</option>                         
+                                    </select>
+                                    <input type="text" placeholder="Enter your search key ...">
+                                    <input type="file" id="file-input" class="file-input" name="image" accept="image/*" required>
+                                    <button class="attach-btn" onclick="document.getElementById('file-input').click();"><i class="fa fa-paperclip"></i></button>
+                                    <button id="start" class="speech-btn"><i class="fa fa-microphone"></i></button>
+                                    <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom mb-0 header-sticky stick d-none d-lg-block d-xl-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="hb-menu">
+                                    <nav>
+                                        <ul>
+                                            <li class="dropdown-holder"><a href="index.html">Home</a>
+                                            </li>
+                                            <li class="catmenu-dropdown megamenu-holder"><a href="shop-left-sidebar.html">Shop</a>
+                                                
+                                            </li>
+                                            <li class="dropdown-holder"><a href="blog-left-sidebar.html">Blog</a>
+                                               
+                                            </li>
+                                            <li class="catmenu-dropdown megamenu-static-holder"><a href="index.html">Pages</a>  
+                                            </li>
+                                            <li><a href="about-us.html">About Us</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </header>
+            <div class="content-wraper pt-60 pb-60 pt-sm-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9 order-1 order-lg-2"style="margin-top:-30px;">
+                            <div class="shop-top-bar mt-30">
+                                <div class="shop-bar-inner">
+                                    <div class="product-view-mode">
+                                        <ul class="nav shop-item-filter-list" role="tablist">
+                                            <li class="active" role="presentation"><a aria-selected="true" class="active show" data-toggle="tab" role="tab" aria-controls="grid-view" href="#grid-view"><i class="fa fa-th"></i></a></li>
+                                            <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="list-view" href="#list-view"><i class="fa fa-th-list"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="toolbar-amount">
+                                        <span>Showing 1 to 9 of 15</span>
+                                    </div>
+                                </div>
+                                <div class="product-select-box">
+                                    <div class="product-short">
+                                        <p>Sort By:</p>
+                                        <select class="nice-select">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-products-wrapper">
+                                <div class="tab-content">
+                                    <div id="grid-view" class="tab-pane fade active show" role="tabpanel">
+                                        <div class="product-area shop-product-area">
+                                            <div class="row">
+                                                {% block content %}
+                                                {% endblock %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {% block pagination %}
+                                    {% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 order-2 order-lg-1">
+                            <div class="sidebar-categores-box mt-sm-30 mt-xs-30">
+                                <div class="sidebar-title">
+                                    <h2>Laptop</h2>
+                                </div>
+                                <div class="category-sub-menu">
+                                    <ul>
+                                        <li class="has-sub"><a href="# ">Prime Video</a>
+                                            <ul>
+                                            </ul>
+                                        </li>
+                                        <li class="has-sub"><a href="#">Computer</a>
+                                            <ul> 
+                                            </ul>
+                                        </li>
+                                        <li class="has-sub"><a href="#">Electronics</a>
+                                            <ul>  
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-categores-box">
+                                <div class="sidebar-title">
+                                    <h2>Filter By</h2>
+                                </div>
+                                <button class="btn-clear-all mb-sm-30 mb-xs-30">Clear all</button>
+                                <div class="filter-sub-area">
+                                    <h5 class="filter-sub-titel">Brand</h5>
+                                    <div class="categori-checkbox">
+                                        <form action="#">
+                                            <ul>
+                                                <li><input type="checkbox" name="product-categori"><a href="#">Prime Video (13)</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="#">Computers (12)</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="#">Electronics (11)</a></li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                 </div>
+                                <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                                    <h5 class="filter-sub-titel">Categories</h5>
+                                    <div class="categori-checkbox">
+                                        <form action="#">
+                                            <ul>
+                                                <li><input type="checkbox" name="product-categori"><a href="#">Graphic Corner (10)</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="#"> Studio Design (6)</a></li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                 </div>
+
+                                <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                                    <h5 class="filter-sub-titel">Size</h5>
+                                    <div class="size-checkbox">
+                                        <form action="#">
+                                            <ul>
+                                                <li><input type="checkbox" name="product-size"><a href="#">S (3)</a></li>
+                                                <li><input type="checkbox" name="product-size"><a href="#">M (3)</a></li>
+                                                <li><input type="checkbox" name="product-size"><a href="#">L (3)</a></li>
+                                                <li><input type="checkbox" name="product-size"><a href="#">XL (3)</a></li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="filter-sub-area pt-sm-10 pt-xs-10">
+                                    <h5 class="filter-sub-titel">Color</h5>
+                                    <div class="color-categoriy">
+                                        <form action="#">
+                                            <ul>
+                                                <li><span class="white"></span><a href="#">White (1)</a></li>
+                                                <li><span class="black"></span><a href="#">Black (1)</a></li>
+                                                <li><span class="Orange"></span><a href="#">Orange (3) </a></li>
+                                                <li><span class="Blue"></span><a href="#">Blue  (2) </a></li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="filter-sub-area pt-sm-10 pb-sm-15 pb-xs-15">
+                                    <h5 class="filter-sub-titel">Dimension</h5>
+                                    <div class="categori-checkbox">
+                                        <form action="#">
+                                            <ul>
+                                                <li><input type="checkbox" name="product-categori"><a href="#">40x60cm (6)</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="#">60x90cm (6)</a></li>
+                                                <li><input type="checkbox" name="product-categori"><a href="#">80x120cm (6)</a></li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-static-middle">
+                    <div class="container">
+                        <div class="footer-logo-wrap pt-50 pb-35">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="footer-logo">
+                                        <img src="{{ url_for('static', filename='images/logo.png') }}" style="transform: scale(5);width: 40px;height: 40px;margin-left: 40px;">
+                                        <p class="info">
+                                            Our app allows you to search by image and speech, making it easier to find what you want without having to type a single word.
+                                    </div>
+                                    <ul class="des">
+                                        <li>
+                                            <span>Address: </span>
+                                            6688Princess Road, London, Greater London BAS 23JK, UK
+                                        </li>
+                                        <li>
+                                            <span>Phone: </span>
+                                            <a href="#">(+123) 123 321 345</a>
+                                        </li>
+                                        <li>
+                                            <span>Email: </span>
+                                            <a href="mailto://info@yourdomain.com">info@yourdomain.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+
+                                <div class="col-lg-2 col-md-3 col-sm-6">
+                                    <div class="footer-block">
+                                        <h3 class="footer-block-title">Product</h3>
+                                        <ul>
+                                            <li><a href="#">Prices drop</a></li>
+                                            <li><a href="#">New products</a></li>
+                                            <li><a href="#">Best sales</a></li>
+                                            <li><a href="#">Contact us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-6">
+                                    <div class="footer-block">
+                                        <h3 class="footer-block-title">Our company</h3>
+                                        <ul>
+                                            <li><a href="#">Delivery</a></li>
+                                            <li><a href="#">Legal Notice</a></li>
+                                            <li><a href="#">About us</a></li>
+                                            <li><a href="#">Contact us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/ajax-mail.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.meanmenu.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/slick.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.mixitup.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.countdown.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.counterup.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/waypoints.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.barrating.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.barrating.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/venobox.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/scrollUp.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/SpeechToText.js') }}"></script>
+    </body>
+</html>
